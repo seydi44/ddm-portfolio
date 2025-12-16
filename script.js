@@ -61,6 +61,22 @@ document.querySelectorAll('[data-toggle]').forEach(btn => {
   });
 });
 
+// Image fallback (hero/about gibi)
+document.querySelectorAll('img[data-fallback]').forEach((img) => {
+  const list = (img.getAttribute('data-fallback') || '')
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  let i = 0;
+
+  img.addEventListener('error', () => {
+    if (i >= list.length) return;
+    img.src = list[i];
+    i += 1;
+  });
+});
+
 // Portfolio modal
 const modal = document.getElementById('projectModal');
 const modalImage = modal?.querySelector('.modal-image');
@@ -84,10 +100,12 @@ document.querySelectorAll('.project').forEach(card => {
 
     if (modalTitle) modalTitle.textContent = title;
     if (modalDesc) modalDesc.textContent = desc;
+
     if (modalImage) {
       modalImage.src = img;
       modalImage.alt = title;
     }
+
     if (modalLink) {
       const hasLink = link && link !== '#';
       modalLink.href = hasLink ? link : '#';
@@ -99,14 +117,6 @@ document.querySelectorAll('.project').forEach(card => {
 });
 
 modal?.addEventListener('click', (e) => {
-  // click outside content
-  const rect = modal.getBoundingClientRect();
-  const isInDialog = (
-    rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-    rect.left <= e.clientX && e.clientX <= rect.left + rect.width
-  );
-  // The check above always returns true for clicks inside the dialog itself.
-  // We want to close only when click backdrop area, which surfaces as click on <dialog>.
   if (e.target === modal) closeModal();
 });
 
@@ -117,7 +127,6 @@ modal?.querySelectorAll('.modal-close, .modal-close-2').forEach(btn => {
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
-
 
 // Video tabs (lazy-load iframes)
 const tabButtons = document.querySelectorAll('.tab-btn[data-tab]');
@@ -164,6 +173,30 @@ tabButtons.forEach((btn) => {
 const firstTab = tabButtons[0]?.getAttribute('data-tab');
 if (firstTab) setActiveTab(firstTab);
 
+// Klip/TV/Reklam (ayrı bölüm) lazy-load
+const reklamIframes = document.querySelectorAll('#klip-tv-reklam iframe.lazy-iframe[data-src]');
+if (reklamIframes.length) {
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const iframe = entry.target;
+        const ds = iframe.getAttribute('data-src');
+        const src = iframe.getAttribute('src');
+        if (ds && (!src || src === 'about:blank')) iframe.setAttribute('src', ds);
+        obs.unobserve(iframe);
+      });
+    }, { root: null, threshold: 0.2 });
+
+    reklamIframes.forEach((ifr) => io.observe(ifr));
+  } else {
+    // Fallback: eski tarayıcılar
+    reklamIframes.forEach((iframe) => {
+      const ds = iframe.getAttribute('data-src');
+      if (ds) iframe.setAttribute('src', ds);
+    });
+  }
+}
 
 // Footer year
 const yearEl = document.getElementById('year');

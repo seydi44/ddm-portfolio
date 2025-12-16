@@ -65,6 +65,14 @@ a{ color: inherit; text-decoration: none; }
   margin-bottom: 34px;
 }
 
+.section-subtitle{
+  font-size: clamp(22px, 2.2vw, 30px);
+  margin: 46px 0 12px;
+  letter-spacing: .2px;
+  color: var(--accent);
+}
+.section-subtitle.center{ text-align: center; }
+
 .site-header{
   position: sticky;
   top: 0;
@@ -312,16 +320,20 @@ a{ color: inherit; text-decoration: none; }
   color: var(--muted);
   margin: 0 0 16px;
 }
-.about-highlights{
-  margin: 16px 0 0;
-  padding-left: 18px;
-  color: var(--muted);
-}
 .about-actions{
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 18px;
+}
+.ticks{
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 700;
 }
 
 /* CARDS / GRIDS */
@@ -390,7 +402,8 @@ a{ color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   aspect-ratio: 16/10;
-  object-fit: cover;
+  object-fit: contain; /* KESİLMESİN */
+  background: rgba(0,0,0,.12);
   display: block;
 }
 .project::after{
@@ -445,14 +458,16 @@ a{ color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 1.1fr .9fr;
   gap: 18px;
-  align-items: center;
+  align-items: start; /* daha iyi */
 }
 .modal-image{
   width: 100%;
-  aspect-ratio: 16/10;
+  height: auto;
+  max-height: 70vh;
   border-radius: var(--radius-sm);
   border: 1px solid rgba(255,255,255,.12);
-  object-fit: cover;
+  object-fit: contain; /* MODAL'DA DA KESİLMESİN */
+  background: rgba(0,0,0,.18);
 }
 .modal-title{
   margin: 0 0 10px;
@@ -473,7 +488,7 @@ a{ color: inherit; text-decoration: none; }
 /* CONTACT */
 .contact-card{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr; /* sadece e-posta kaldığı için tek kolon */
   gap: 18px;
   padding: 26px;
   border-radius: var(--radius);
@@ -506,39 +521,6 @@ a{ color: inherit; text-decoration: none; }
 }
 .contact-list span{
   filter: drop-shadow(0 0 18px rgba(25,243,255,.25));
-}
-
-.form{
-  border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-  padding: 18px;
-}
-.form-title{
-  margin: 0 0 12px;
-  font-weight: 900;
-  color: rgba(255,255,255,.86);
-}
-label{ display: grid; gap: 6px; margin-bottom: 12px; }
-label span{ color: var(--muted); font-weight: 700; font-size: 13px; }
-input, textarea{
-  width: 100%;
-  padding: 12px 12px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.18);
-  color: var(--text);
-  outline: none;
-}
-input:focus, textarea:focus{
-  border-color: rgba(25,243,255,.30);
-  box-shadow: 0 0 0 4px rgba(25,243,255,.10);
-}
-.form-hint{
-  margin: 12px 0 0;
-  color: var(--muted-2);
-  font-size: 12px;
-  line-height: 1.4;
 }
 
 .footer{
@@ -583,7 +565,6 @@ input:focus, textarea:focus{
   .hero-grid{ grid-template-columns: 1fr; }
   .hero-media{ order: -1; }
   .about-card{ grid-template-columns: 1fr; }
-  .contact-card{ grid-template-columns: 1fr; }
   .skills-grid{ grid-template-columns: repeat(2, 1fr); }
   .modal-grid{ grid-template-columns: 1fr; }
 }
@@ -614,7 +595,6 @@ input:focus, textarea:focus{
   html{ scroll-behavior: auto; }
   *{ transition: none !important; }
 }
-
 
 /* Video tabs */
 .section-sub{
@@ -708,4 +688,8 @@ input:focus, textarea:focus{
 
 .video-link:hover{
   text-decoration: underline;
+}
+
+.video-subsection{
+  margin-top: 24px;
 }
