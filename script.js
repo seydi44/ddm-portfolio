@@ -312,15 +312,37 @@ function applyLang(lang) {
   if (cBtns[1]) cBtns[1].textContent = contact.cv;
 
   // lang button ui
-  const langBtn = $("#langToggle");
-  if (langBtn) {
-    const flag = $(".flag", langBtn);
-    const code = $(".code", langBtn);
-    if (flag && code) {
-      if (lang === "tr") { flag.textContent = "🇹🇷"; code.textContent = "TR"; }
-      else { flag.textContent = "🇬🇧"; code.textContent = "EN"; }
-    }
+  // Language switch (TR/EN flags)
+(() => {
+  const switchEl = document.querySelector(".lang-switch");
+  if (!switchEl) return;
+
+  const btns = Array.from(switchEl.querySelectorAll(".lang-btn"));
+  const supported = ["tr", "en"];
+
+  const stored = localStorage.getItem("lang");
+  const browser = (navigator.language || "").toLowerCase().startsWith("tr") ? "tr" : "en";
+  let current = supported.includes(stored) ? stored : browser;
+
+  function setLang(lang){
+    if (!supported.includes(lang)) return;
+
+    current = lang;
+    localStorage.setItem("lang", lang);
+    document.documentElement.lang = lang;
+
+    btns.forEach(b => b.classList.toggle("is-active", b.dataset.lang === lang));
+
+    // Senin mevcut i18n fonksiyonun hangisiyse onu çağırır:
+    if (typeof window.setLanguage === "function") window.setLanguage(lang);
+    else if (typeof window.applyTranslations === "function") window.applyTranslations(lang);
+    else if (typeof window.applyI18n === "function") window.applyI18n(lang);
   }
+
+  btns.forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+  setLang(current);
+})();
+
 }
 
 /* =========================
