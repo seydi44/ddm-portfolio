@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">İçeriğe atla</a>
+  <a class="skip-link" href="#main" data-i18n="skip">İçeriğe atla</a>
 
   <header class="site-header" id="top">
     <div class="container header-inner">
@@ -33,13 +33,19 @@
       </button>
 
       <nav class="nav" aria-label="Site menüsü">
-        <a href="#home" class="nav-link">Anasayfa</a>
-        <a href="#about" class="nav-link">Hakkımda</a>
-        <a href="#skills" class="nav-link">Yetkinlikler</a>
-        <a href="#videos" class="nav-link">Videolar</a>
-        <a href="#portfolio" class="nav-link">Marka Tasarımları</a>
-        <a href="#contact" class="nav-link nav-cta">İletişim</a>
+        <a href="#home" class="nav-link" data-i18n="nav_home">Anasayfa</a>
+        <a href="#about" class="nav-link" data-i18n="nav_about">Hakkımda</a>
+        <a href="#skills" class="nav-link" data-i18n="nav_skills">Yetkinlikler</a>
+        <a href="#videos" class="nav-link" data-i18n="nav_videos">Videolar</a>
+        <a href="#portfolio" class="nav-link" data-i18n="nav_brands">Marka Tasarımları</a>
+        <a href="#contact" class="nav-link nav-cta" data-i18n="nav_contact">İletişim</a>
       </nav>
+
+      <!-- DİL BUTONU -->
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Dil değiştir">
+        <span class="flag" aria-hidden="true">🇹🇷</span>
+        <span class="code">TR</span>
+      </button>
     </div>
   </header>
 
@@ -48,19 +54,24 @@
     <section class="section hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Merhaba</p>
-          <h1 class="hero-title"><span class="muted">ben</span> Didem Gül</h1>
-          <p class="hero-role">Videographer • Graphic Designer</p>
+          <p class="eyebrow" data-i18n="hero_hello">Merhaba</p>
 
-          <p class="hero-desc">
+          <h1 class="hero-title">
+            <span class="muted" data-i18n="hero_i_am">ben</span>
+            <span>Didem Gül</span>
+          </h1>
+
+          <p class="hero-role" data-i18n="hero_role">Videographer • Graphic Designer</p>
+
+          <p class="hero-desc" data-i18n="hero_desc">
             Hikâyeleri görselleştiriyor; çekim, kurgu ve grafikle güçlü bir bütün hâline getiriyorum.
             Her proje benim için yeni bir sahne, yeni bir bakış açısı.
             Portfolyomda bu yolculuğun izlerini bulacaksın.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="assets/CV-Didem-Gul.pdf" download>CV İndir</a>
-            <a class="btn btn-ghost" href="#videos">Videoları Gör</a>
+            <a class="btn btn-primary" href="assets/CV-Didem-Gul.pdf" download data-i18n="btn_cv">CV İndir</a>
+            <a class="btn btn-ghost" href="#videos" data-i18n="btn_see_videos">Videoları Gör</a>
           </div>
 
           <div class="social-row" aria-label="Sosyal bağlantılar">
@@ -80,7 +91,7 @@
                href="mailto:didem_gul1998@hotmail.com?subject=Portfolyo%20%C4%B0leti%C5%9Fim"
                aria-label="E-posta">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              <span>E-posta</span>
+              <span data-i18n="email">E-posta</span>
             </a>
           </div>
         </div>
@@ -113,29 +124,28 @@
         </div>
 
         <div class="about-copy">
-          <h2 class="section-title">Hakkımda</h2>
-          <p class="about-text">
+          <h2 class="section-title" data-i18n="about_title">Hakkımda</h2>
+
+          <p class="about-text" data-i18n="about_p1">
             Yaratıcı bakış açısını teknik bilgiyle birleştiren bir videographer ve tasarımcıyım. Farklı konseptlerde içerik üreterek prodüksiyon süreçlerini uçtan uca yönetiyorum.
           </p>
 
-          <div class="about-more" hidden>
-            <p class="about-text">
+          <div class="about-more" id="aboutMore" hidden>
+            <p class="about-text" data-i18n="about_p2">
               Çekimden kurguya, grafik tasarımdan görsel düzenlemeye kadar tüm süreçleri üstlenerek projeleri bütüncül bir bakışla hayata geçiriyorum.
               YouTube içerikleri için çekim/ışık/kadraj, kurgu, renk çalışması, ses tasarımı ve thumbnail tasarımlarını uçtan uca yürütebiliyorum.
             </p>
             <ul class="ticks">
-              <li>🎥 Çekim • ışık • kadraj • ses</li>
-              <li>✂️ Kurgu • renk • SFX • motion</li>
-              <li>🖼️ Thumbnail • banner • afiş • sosyal medya</li>
-              <li>🧩 Marka dili • görsel tutarlılık</li>
+              <li data-i18n="about_tick1">🎥 Çekim • ışık • kadraj • ses</li>
+              <li data-i18n="about_tick2">✂️ Kurgu • renk • SFX • motion</li>
+              <li data-i18n="about_tick3">🖼️ Thumbnail • banner • afiş • sosyal medya</li>
+              <li data-i18n="about_tick4">🧩 Marka dili • görsel tutarlılık</li>
             </ul>
           </div>
 
           <div class="about-actions">
-            <button class="btn btn-primary" type="button" data-toggle="#about .about-more" data-toggle-text="Daha Az Gör">
-              Daha Fazla Gör
-            </button>
-            <a class="btn btn-ghost" href="#contact">İletişime Geç</a>
+            <button class="btn btn-primary" id="aboutToggleBtn" type="button">Daha Fazla Gör</button>
+            <a class="btn btn-ghost" href="#contact" data-i18n="btn_contact">İletişime Geç</a>
           </div>
         </div>
       </div>
@@ -144,42 +154,42 @@
     <!-- SKILLS -->
     <section class="section" id="skills">
       <div class="container">
-        <h2 class="section-title center">Yetkinlikler</h2>
+        <h2 class="section-title center" data-i18n="skills_title">Yetkinlikler</h2>
 
         <div class="grid skills-grid">
           <article class="card skill">
             <h3>Adobe Premiere</h3>
-            <p>Kurgu, renk, ritim, teslim formatları.</p>
+            <p data-i18n="skill_premiere">Kurgu, renk, ritim, teslim formatları.</p>
             <div class="meter"><span style="width: 100%"></span></div>
           </article>
 
           <article class="card skill">
             <h3>Adobe Photoshop</h3>
-            <p>Görsel düzenleme, kompozit, sosyal medya.</p>
+            <p data-i18n="skill_ps">Görsel düzenleme, kompozit, sosyal medya.</p>
             <div class="meter"><span style="width: 100%"></span></div>
           </article>
 
           <article class="card skill">
             <h3>Adobe After Effects</h3>
-            <p>Motion, title pack, VFX temelleri.</p>
+            <p data-i18n="skill_ae">Motion, title pack, VFX temelleri.</p>
             <div class="meter"><span style="width: 100%"></span></div>
           </article>
 
           <article class="card skill">
             <h3>Adobe Illustrator</h3>
-            <p>Vektör, logo, infografik.</p>
+            <p data-i18n="skill_ai">Vektör, logo, infografik.</p>
             <div class="meter"><span style="width: 100%"></span></div>
           </article>
 
           <article class="card skill">
             <h3>Figma</h3>
-            <p>UI tasarım, sunum, layout.</p>
+            <p data-i18n="skill_figma">UI tasarım, sunum, layout.</p>
             <div class="meter"><span style="width: 100%"></span></div>
           </article>
 
           <article class="card skill">
-            <h3>Yapay Zekâ Araçları</h3>
-            <p>İçerik hızlandırma, fikir üretimi, düzenleme.</p>
+            <h3 data-i18n="skill_ai_tools_title">Yapay Zekâ Araçları</h3>
+            <p data-i18n="skill_ai_tools">İçerik hızlandırma, fikir üretimi, düzenleme.</p>
             <div class="meter"><span style="width: 100%"></span></div>
           </article>
         </div>
@@ -189,24 +199,24 @@
     <!-- VIDEOS -->
     <section class="section" id="videos">
       <div class="container">
-        <h2 class="section-title center">Video Çalışmalarım</h2>
-        <p class="section-sub center">
+        <h2 class="section-title center" data-i18n="videos_title">Video Çalışmalarım</h2>
+        <p class="section-sub center" data-i18n="videos_sub">
           Aşağıdaki örnekler; çekim, kurgu ve thumbnail çalışmalarına ait referans videolardır.
         </p>
 
-        <!-- Tabs (Klip/TV/Reklam kaldırıldı, ayrı başlık aşağıda) -->
         <div class="tabs">
           <div class="tab-buttons" role="tablist" aria-label="Video kategorileri">
             <button class="tab-btn is-active" type="button" role="tab" aria-selected="true" aria-controls="tab-hayrettin" data-tab="tab-hayrettin">Hayrettin</button>
             <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-oha-di-yorum" data-tab="tab-oha-di-yorum">OHA DİYORUM</button>
             <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-melih-abuaf" data-tab="tab-melih-abuaf">Melih Abuaf</button>
-            <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-ocuk-kanallar" data-tab="tab-ocuk-kanallar">Çocuk Kanalları</button>
-            <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-ocuk-shorts" data-tab="tab-ocuk-shorts">Çocuk Shorts</button>
+            <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-ocuk-kanallar" data-tab="tab-ocuk-kanallar" data-i18n="tab_kids_channels">Çocuk Kanalları</button>
+            <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-ocuk-shorts" data-tab="tab-ocuk-shorts" data-i18n="tab_kids_shorts">Çocuk Shorts</button>
             <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-bar-murat-ya-c" data-tab="tab-bar-murat-ya-c">Barış Murat Yağcı</button>
             <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-nisa-b-l-kba" data-tab="tab-nisa-b-l-kba">Nisa Bölükbaşı</button>
             <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-semih-zt-rk" data-tab="tab-semih-zt-rk">Semih Öztürk</button>
           </div>
 
+          <!-- Paneller (video link metni i18n) -->
           <div class="tab-panel" id="tab-hayrettin" role="tabpanel">
             <div class="video-grid">
               <div class="video-card">
@@ -214,7 +224,7 @@
                   <iframe title="Hayrettin - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/ugDGaKg2K08?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=ugDGaKg2K08&amp;t=16s" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=ugDGaKg2K08&amp;t=16s" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -222,7 +232,7 @@
                   <iframe title="Hayrettin - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/9v3ZO2lG3FI?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/9v3ZO2lG3FI?si=8SQBw6WqkYkKusVA" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/9v3ZO2lG3FI?si=8SQBw6WqkYkKusVA" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -230,7 +240,7 @@
                   <iframe title="Hayrettin - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/ULwcXu0Xpjg?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/ULwcXu0Xpjg?si=E1sDRw92M-zll2wa" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/ULwcXu0Xpjg?si=E1sDRw92M-zll2wa" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -238,7 +248,7 @@
                   <iframe title="Hayrettin - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/h25gKXXi16Q?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=h25gKXXi16Q" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=h25gKXXi16Q" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
             </div>
           </div>
@@ -250,7 +260,7 @@
                   <iframe title="OHA DİYORUM - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/KtpEo3zvHzM?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/KtpEo3zvHzM?si=T_8d1_h1EV78KFQs" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/KtpEo3zvHzM?si=T_8d1_h1EV78KFQs" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -258,7 +268,7 @@
                   <iframe title="OHA DİYORUM - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/HjHelwd7WXg?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/HjHelwd7WXg?si=PEtT9Dprg_yZBn0w" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/HjHelwd7WXg?si=PEtT9Dprg_yZBn0w" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -266,7 +276,7 @@
                   <iframe title="OHA DİYORUM - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/PdCv8fXz9Bo?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/PdCv8fXz9Bo?si=3XeMelhzOXZOQEoI" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/PdCv8fXz9Bo?si=3XeMelhzOXZOQEoI" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -274,7 +284,7 @@
                   <iframe title="OHA DİYORUM - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/hSwZwbZHPOA?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/hSwZwbZHPOA?si=-EMMwOQc7Zp1yd8R" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/hSwZwbZHPOA?si=-EMMwOQc7Zp1yd8R" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
             </div>
           </div>
@@ -286,7 +296,7 @@
                   <iframe title="Melih Abuaf - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/cV5GiLgrkbQ?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/cV5GiLgrkbQ?si=OBztFDIBshj6eLc9" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/cV5GiLgrkbQ?si=OBztFDIBshj6eLc9" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -294,7 +304,7 @@
                   <iframe title="Melih Abuaf - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/UaH-Y6xy-m0?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/UaH-Y6xy-m0?si=iwpkvjSXSciFhjvB" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/UaH-Y6xy-m0?si=iwpkvjSXSciFhjvB" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -302,7 +312,7 @@
                   <iframe title="Melih Abuaf - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/glrAybM15eA?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/glrAybM15eA?si=neowvztnM8VPGalg" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/glrAybM15eA?si=neowvztnM8VPGalg" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -310,7 +320,7 @@
                   <iframe title="Melih Abuaf - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/nnvoxVaYjZY?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/nnvoxVaYjZY?si=pOnorHEYJ67Z9QZ-" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/nnvoxVaYjZY?si=pOnorHEYJ67Z9QZ-" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
             </div>
           </div>
@@ -319,34 +329,34 @@
             <div class="video-grid">
               <div class="video-card">
                 <div class="ratio">
-                  <iframe title="Çocuk Kanalları - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/2YXOpVYz9zY?rel=0" loading="lazy"
+                  <iframe title="Kids Channels - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/2YXOpVYz9zY?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/2YXOpVYz9zY?si=dQEpkZDMFg9S-crf" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/2YXOpVYz9zY?si=dQEpkZDMFg9S-crf" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
                 <div class="ratio">
-                  <iframe title="Çocuk Kanalları - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/LN9HuMzOKj4?rel=0" loading="lazy"
+                  <iframe title="Kids Channels - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/LN9HuMzOKj4?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=LN9HuMzOKj4&amp;t=75s" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=LN9HuMzOKj4&amp;t=75s" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
                 <div class="ratio">
-                  <iframe title="Çocuk Kanalları - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/2QaD3q9XV_4?rel=0" loading="lazy"
+                  <iframe title="Kids Channels - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/2QaD3q9XV_4?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=2QaD3q9XV_4" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=2QaD3q9XV_4" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
                 <div class="ratio">
-                  <iframe title="Çocuk Kanalları - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/RINiwKCiG3o?rel=0" loading="lazy"
+                  <iframe title="Kids Channels - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/RINiwKCiG3o?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=RINiwKCiG3o" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=RINiwKCiG3o" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
             </div>
           </div>
@@ -355,34 +365,34 @@
             <div class="video-grid">
               <div class="video-card">
                 <div class="ratio">
-                  <iframe title="Çocuk Shorts - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/gRGu-SPOKp4?rel=0" loading="lazy"
+                  <iframe title="Kids Shorts - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/gRGu-SPOKp4?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/shorts/gRGu-SPOKp4" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/shorts/gRGu-SPOKp4" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
                 <div class="ratio">
-                  <iframe title="Çocuk Shorts - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/75rWg1BH0Xc?rel=0" loading="lazy"
+                  <iframe title="Kids Shorts - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/75rWg1BH0Xc?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/shorts/75rWg1BH0Xc" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/shorts/75rWg1BH0Xc" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
                 <div class="ratio">
-                  <iframe title="Çocuk Shorts - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/yvoG5uO-H7Q?rel=0" loading="lazy"
+                  <iframe title="Kids Shorts - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/yvoG5uO-H7Q?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/shorts/yvoG5uO-H7Q" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/shorts/yvoG5uO-H7Q" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
                 <div class="ratio">
-                  <iframe title="Çocuk Shorts - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/vSckd1QfXuU?rel=0" loading="lazy"
+                  <iframe title="Kids Shorts - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/vSckd1QfXuU?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/shorts/vSckd1QfXuU" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/shorts/vSckd1QfXuU" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
             </div>
           </div>
@@ -394,7 +404,7 @@
                   <iframe title="Barış Murat Yağcı - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/OilJwsnlz2g?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=OilJwsnlz2g" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=OilJwsnlz2g" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -402,7 +412,7 @@
                   <iframe title="Barış Murat Yağcı - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/BVI0BahL3l4?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=BVI0BahL3l4" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=BVI0BahL3l4" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -410,7 +420,7 @@
                   <iframe title="Barış Murat Yağcı - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/SCijL__So68?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=SCijL__So68" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=SCijL__So68" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -418,7 +428,7 @@
                   <iframe title="Barış Murat Yağcı - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/PsQst180Vhs?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=PsQst180Vhs" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=PsQst180Vhs" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
             </div>
           </div>
@@ -430,7 +440,7 @@
                   <iframe title="Nisa Bölükbaşı - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/WJCzluv832s?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/WJCzluv832s?si=oKM8WWbYaFqpL7tq" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/WJCzluv832s?si=oKM8WWbYaFqpL7tq" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -438,7 +448,7 @@
                   <iframe title="Nisa Bölükbaşı - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/3LMLhOX57zI?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/3LMLhOX57zI?si=8X-2-NhmYHaVwDRh" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/3LMLhOX57zI?si=8X-2-NhmYHaVwDRh" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -446,7 +456,7 @@
                   <iframe title="Nisa Bölükbaşı - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/BsRFtvPfx4o?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://youtu.be/BsRFtvPfx4o?si=dJUZHlQjB39HtIWn" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://youtu.be/BsRFtvPfx4o?si=dJUZHlQjB39HtIWn" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -454,7 +464,7 @@
                   <iframe title="Nisa Bölükbaşı - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/Bihsoia0mPU?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=Bihsoia0mPU" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=Bihsoia0mPU" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
             </div>
           </div>
@@ -466,7 +476,7 @@
                   <iframe title="Semih Öztürk - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/gSOAqNAWcMY?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=gSOAqNAWcMY" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=gSOAqNAWcMY" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -474,7 +484,7 @@
                   <iframe title="Semih Öztürk - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/_blAjs6jp-I?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=_blAjs6jp-I" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=_blAjs6jp-I" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -482,7 +492,7 @@
                   <iframe title="Semih Öztürk - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/QkeNBZycpZU?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=QkeNBZycpZU" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=QkeNBZycpZU" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
 
               <div class="video-card">
@@ -490,7 +500,7 @@
                   <iframe title="Semih Öztürk - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/i488hlkwEd4?rel=0" loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a class="video-link" href="https://www.youtube.com/watch?v=i488hlkwEd4" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+                <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=i488hlkwEd4" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
               </div>
             </div>
           </div>
@@ -498,8 +508,8 @@
 
         <!-- Klip/TV/Reklam ayrı başlık -->
         <div class="video-subsection" id="klip-tv-reklam">
-          <h3 class="section-subtitle center">Klip / TV / Reklam</h3>
-          <p class="section-sub center">Klip, TV ve reklam işleri için seçili referanslar.</p>
+          <h3 class="section-subtitle center" data-i18n="ads_title">Klip / TV / Reklam</h3>
+          <p class="section-sub center" data-i18n="ads_sub">Klip, TV ve reklam işleri için seçili referanslar.</p>
 
           <div class="video-grid">
             <div class="video-card">
@@ -507,7 +517,7 @@
                 <iframe class="lazy-iframe" title="Klip / TV / Reklam - Video 1" src="about:blank" data-src="https://www.youtube.com/embed/G8TnKss-CSM?rel=0" loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
-              <a class="video-link" href="https://www.youtube.com/watch?v=G8TnKss-CSM&amp;list=RDG8TnKss-CSM&amp;start_radio=1" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+              <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=G8TnKss-CSM&amp;list=RDG8TnKss-CSM&amp;start_radio=1" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
             </div>
 
             <div class="video-card">
@@ -515,7 +525,7 @@
                 <iframe class="lazy-iframe" title="Klip / TV / Reklam - Video 2" src="about:blank" data-src="https://www.youtube.com/embed/4O170NrFftk?rel=0" loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
-              <a class="video-link" href="https://www.youtube.com/watch?v=4O170NrFftk&amp;list=RD4O170NrFftk&amp;start_radio=1" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+              <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=4O170NrFftk&amp;list=RD4O170NrFftk&amp;start_radio=1" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
             </div>
 
             <div class="video-card">
@@ -523,7 +533,7 @@
                 <iframe class="lazy-iframe" title="Klip / TV / Reklam - Video 3" src="about:blank" data-src="https://www.youtube.com/embed/5bpTqlYnmpw?rel=0" loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
-              <a class="video-link" href="https://www.youtube.com/watch?v=5bpTqlYnmpw&amp;list=RD5bpTqlYnmpw&amp;start_radio=1" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+              <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=5bpTqlYnmpw&amp;list=RD5bpTqlYnmpw&amp;start_radio=1" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
             </div>
 
             <div class="video-card">
@@ -531,7 +541,7 @@
                 <iframe class="lazy-iframe" title="Klip / TV / Reklam - Video 4" src="about:blank" data-src="https://www.youtube.com/embed/Nsk_E_7OgNU?rel=0" loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
-              <a class="video-link" href="https://www.youtube.com/watch?v=Nsk_E_7OgNU&amp;list=RDNsk_E_7OgNU&amp;start_radio=1" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+              <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=Nsk_E_7OgNU&amp;list=RDNsk_E_7OgNU&amp;start_radio=1" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
             </div>
 
             <div class="video-card">
@@ -539,7 +549,7 @@
                 <iframe class="lazy-iframe" title="Klip / TV / Reklam - Video 5" src="about:blank" data-src="https://www.youtube.com/embed/s6wDT-ShBIk?rel=0" loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
-              <a class="video-link" href="https://www.youtube.com/watch?v=s6wDT-ShBIk" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+              <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=s6wDT-ShBIk" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
             </div>
 
             <div class="video-card">
@@ -547,7 +557,7 @@
                 <iframe class="lazy-iframe" title="Klip / TV / Reklam - Video 6" src="about:blank" data-src="https://www.youtube.com/embed/C_C7qoi_-vM?rel=0" loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
-              <a class="video-link" href="https://www.youtube.com/watch?v=C_C7qoi_-vM" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
+              <a class="video-link" data-i18n="open_youtube" href="https://www.youtube.com/watch?v=C_C7qoi_-vM" target="_blank" rel="noreferrer noopener">YouTube’da aç ↗</a>
             </div>
           </div>
         </div>
@@ -558,112 +568,127 @@
     <!-- PORTFOLIO -->
     <section class="section" id="portfolio">
       <div class="container">
-        <h2 class="section-title center">Marka Tasarımları</h2>
+        <h2 class="section-title center" data-i18n="portfolio_title">Marka Tasarımları</h2>
 
         <div class="grid portfolio-grid">
 
           <button class="project" type="button"
-            data-title="HiPet Ürün Serisi"
-            data-desc="Ürün serisi için etiket/paketleme tasarımı ve renk sistematiği."
+            data-title-tr="HiPet Ürün Serisi"
+            data-title-en="HiPet Product Line"
+            data-desc-tr="Ürün serisi için etiket/paketleme tasarımı ve renk sistematiği."
+            data-desc-en="Label/packaging design and a consistent color system for the product line."
             data-image="assets/brands/hipet-products-line.png"
             data-link="">
             <img src="assets/brands/hipet-products-line.png" alt="HiPet Ürün Serisi" loading="lazy" />
             <div class="project-meta">
               <span class="tag">Packaging</span>
-              <h3>HiPet Ürün Serisi</h3>
-              <p>Paketleme &amp; ürün görsel dili</p>
+              <h3 data-i18n="p1_title">HiPet Ürün Serisi</h3>
+              <p data-i18n="p1_sub">Paketleme &amp; ürün görsel dili</p>
             </div>
           </button>
 
           <button class="project" type="button"
-            data-title="HiPet Tanıtım Afişi"
-            data-desc="HiPet Professional için tanıtım afişi, QR alanları ve hiyerarşi kurgusu."
+            data-title-tr="HiPet Tanıtım Afişi"
+            data-title-en="HiPet Promo Poster"
+            data-desc-tr="HiPet Professional için tanıtım afişi, QR alanları ve hiyerarşi kurgusu."
+            data-desc-en="Promotional poster with QR areas and clear typographic hierarchy."
             data-image="assets/brands/hipet-poster.png"
             data-link="">
             <img src="assets/brands/hipet-poster.png" alt="HiPet Tanıtım Afişi" loading="lazy" />
             <div class="project-meta">
               <span class="tag">Poster</span>
-              <h3>HiPet Tanıtım Afişi</h3>
-              <p>Afiş / dijital tasarım</p>
+              <h3 data-i18n="p2_title">HiPet Tanıtım Afişi</h3>
+              <p data-i18n="p2_sub">Afiş / dijital tasarım</p>
             </div>
           </button>
 
           <button class="project" type="button"
-            data-title="Pump Station Gym Logo"
-            data-desc="Fitness &amp; health markası için güçlü, yüksek kontrastlı logo tasarımı."
+            data-title-tr="Pump Station Gym Logo"
+            data-title-en="Pump Station Gym Logo"
+            data-desc-tr="Fitness &amp; health markası için güçlü, yüksek kontrastlı logo tasarımı."
+            data-desc-en="Strong, high-contrast logo design for a fitness & health brand."
             data-image="assets/brands/pump-station-gym-logo.png"
             data-link="">
             <img src="assets/brands/pump-station-gym-logo.png" alt="Pump Station Gym Logo" loading="lazy" />
             <div class="project-meta">
               <span class="tag">Logo</span>
               <h3>Pump Station Gym Logo</h3>
-              <p>Logo tasarımı</p>
+              <p data-i18n="p3_sub">Logo tasarımı</p>
             </div>
           </button>
 
           <button class="project" type="button"
-            data-title="Pump Station Gym Kartvizit"
-            data-desc="Kurumsal kimliğe uygun kartvizit düzeni: ikon seti, hiyerarşi ve baskı alanları."
+            data-title-tr="Pump Station Gym Kartvizit"
+            data-title-en="Pump Station Gym Business Card"
+            data-desc-tr="Kurumsal kimliğe uygun kartvizit düzeni: ikon seti, hiyerarşi ve baskı alanları."
+            data-desc-en="Business card layout aligned with brand identity: icon set, hierarchy and print-safe areas."
             data-image="assets/brands/pump-station-business-cards.png"
             data-link="">
             <img src="assets/brands/pump-station-business-cards.png" alt="Pump Station Gym Kartvizit" loading="lazy" />
             <div class="project-meta">
               <span class="tag">Print</span>
-              <h3>Pump Station Gym Kartvizit</h3>
-              <p>Kartvizit tasarımı</p>
+              <h3 data-i18n="p4_title">Pump Station Gym Kartvizit</h3>
+              <p data-i18n="p4_sub">Kartvizit tasarımı</p>
             </div>
           </button>
 
           <button class="project" type="button"
-            data-title="Liora Beauty Center"
-            data-desc="Beauty Center için tipografi odaklı, zarif logo tasarımı."
+            data-title-tr="Liora Beauty Center"
+            data-title-en="Liora Beauty Center"
+            data-desc-tr="Beauty Center için tipografi odaklı, zarif logo tasarımı."
+            data-desc-en="Elegant, typography-focused logo design for a beauty center."
             data-image="assets/brands/liora-beauty-center-logo.png"
             data-link="">
             <img src="assets/brands/liora-beauty-center-logo.png" alt="Liora Beauty Center" loading="lazy" />
             <div class="project-meta">
               <span class="tag">Logo</span>
               <h3>Liora Beauty Center</h3>
-              <p>Logo tasarımı</p>
+              <p data-i18n="p5_sub">Logo tasarımı</p>
             </div>
           </button>
 
           <button class="project" type="button"
-            data-title="Lanthe Shampoo"
-            data-desc="Şampuan ürünü için etiket tasarımı: marka dili, okunabilirlik ve kompozisyon."
+            data-title-tr="Lanthe Shampoo"
+            data-title-en="Lanthe Shampoo"
+            data-desc-tr="Şampuan ürünü için etiket tasarımı: marka dili, okunabilirlik ve kompozisyon."
+            data-desc-en="Label design for shampoo: brand language, readability and composition."
             data-image="assets/brands/lanthe-shampoo.png"
             data-link="">
             <img src="assets/brands/lanthe-shampoo.png" alt="Lanthe Shampoo" loading="lazy" />
             <div class="project-meta">
               <span class="tag">Packaging</span>
               <h3>Lanthe Shampoo</h3>
-              <p>Ambalaj / etiket tasarımı</p>
+              <p data-i18n="p6_sub">Ambalaj / etiket tasarımı</p>
             </div>
           </button>
 
-          <!-- YENİ: Lanthe Capsul -->
           <button class="project" type="button"
-            data-title="Lanthe Capsul"
-            data-desc="Kapsül ürün için tasarım: marka dili, okunabilirlik ve kompozisyon."
+            data-title-tr="Lanthe Capsul"
+            data-title-en="Lanthe Capsule"
+            data-desc-tr="Kapsül ürün için tasarım: marka dili, okunabilirlik ve kompozisyon."
+            data-desc-en="Design for capsule product: brand language, readability and composition."
             data-image="assets/brands/lanthe-capsul.png"
             data-link="">
             <img src="assets/brands/lanthe-capsul.png" alt="Lanthe Capsul" loading="lazy" />
             <div class="project-meta">
               <span class="tag">Packaging</span>
-              <h3>Lanthe Capsul</h3>
-              <p>Ambalaj / etiket tasarımı</p>
+              <h3 data-i18n="p7_title">Lanthe Capsul</h3>
+              <p data-i18n="p7_sub">Ambalaj / etiket tasarımı</p>
             </div>
           </button>
 
           <button class="project" type="button"
-            data-title="Bedirhan Avlı Kartvizit"
-            data-desc="Minimal kartvizit tasarımı: grid, tipografi ve renk dengesi."
+            data-title-tr="Bedirhan Avlı Kartvizit"
+            data-title-en="Bedirhan Avlı Business Card"
+            data-desc-tr="Minimal kartvizit tasarımı: grid, tipografi ve renk dengesi."
+            data-desc-en="Minimal business card design: grid, typography and color balance."
             data-image="assets/brands/bedirhan-avli-card.png"
             data-link="">
             <img src="assets/brands/bedirhan-avli-card.png" alt="Bedirhan Avlı Kartvizit" loading="lazy" />
             <div class="project-meta">
               <span class="tag">Print</span>
-              <h3>Bedirhan Avlı Kartvizit</h3>
-              <p>Kartvizit tasarımı</p>
+              <h3 data-i18n="p8_title">Bedirhan Avlı Kartvizit</h3>
+              <p data-i18n="p8_sub">Kartvizit tasarımı</p>
             </div>
           </button>
 
@@ -680,8 +705,8 @@
               <h3 class="modal-title"></h3>
               <p class="modal-desc"></p>
               <div class="modal-actions">
-                <a class="btn btn-primary modal-link" href="#" target="_blank" rel="noreferrer noopener">Projeyi Aç</a>
-                <button class="btn btn-ghost modal-close-2" type="button">Kapat</button>
+                <a class="btn btn-primary modal-link" href="#" target="_blank" rel="noreferrer noopener" data-i18n="modal_open">Projeyi Aç</a>
+                <button class="btn btn-ghost modal-close-2" type="button" data-i18n="modal_close">Kapat</button>
               </div>
             </div>
           </div>
@@ -693,14 +718,14 @@
     <section class="section" id="contact">
       <div class="container contact-card">
         <div>
-          <h2 class="section-title">İletişim</h2>
-          <p class="contact-text">
+          <h2 class="section-title" data-i18n="contact_title">İletişim</h2>
+          <p class="contact-text" data-i18n="contact_text">
             Proje, iş birliği veya soru için bana yazabilirsin. En hızlı dönüş için e-posta kullanabilirsin.
           </p>
 
           <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:didem_gul1998@hotmail.com?subject=Portfolyo%20%C4%B0leti%C5%9Fim">E-posta Gönder</a>
-            <a class="btn btn-ghost" href="assets/CV-Didem-Gul.pdf" download>CV İndir</a>
+            <a class="btn btn-primary" href="mailto:didem_gul1998@hotmail.com?subject=Portfolyo%20%C4%B0leti%C5%9Fim" data-i18n="btn_email_send">E-posta Gönder</a>
+            <a class="btn btn-ghost" href="assets/CV-Didem-Gul.pdf" download data-i18n="btn_cv">CV İndir</a>
           </div>
 
           <ul class="contact-list">
