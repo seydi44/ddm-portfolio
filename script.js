@@ -115,66 +115,42 @@ const PORTFOLIO_MAP = {
   "assets/brands/hipet-products-line.png": {
     title: { tr: "HiPet Ürün Serisi", en: "HiPet Product Line" },
     sub:   { tr: "Paketleme & ürün görsel dili", en: "Packaging & visual system" },
-    desc:  {
-      tr: "Ürün serisi için etiket/paketleme tasarımı ve renk sistematiği.",
-      en: "Label/packaging design and a consistent color system for the product line."
-    }
+    desc:  { tr: "Ürün serisi için etiket/paketleme tasarımı ve renk sistematiği.", en: "Label/packaging design and a consistent color system for the product line." }
   },
   "assets/brands/hipet-poster.png": {
     title: { tr: "HiPet Tanıtım Afişi", en: "HiPet Promo Poster" },
     sub:   { tr: "Afiş / dijital tasarım", en: "Poster / digital design" },
-    desc:  {
-      tr: "HiPet Professional için tanıtım afişi, QR alanları ve hiyerarşi kurgusu.",
-      en: "Promotional poster with QR areas and clear typographic hierarchy."
-    }
+    desc:  { tr: "HiPet Professional için tanıtım afişi, QR alanları ve hiyerarşi kurgusu.", en: "Promotional poster with QR areas and clear typographic hierarchy." }
   },
   "assets/brands/pump-station-gym-logo.png": {
     title: { tr: "Pump Station Gym Logo", en: "Pump Station Gym Logo" },
     sub:   { tr: "Logo tasarımı", en: "Logo design" },
-    desc:  {
-      tr: "Fitness & health markası için güçlü, yüksek kontrastlı logo tasarımı.",
-      en: "Strong, high-contrast logo design for a fitness & health brand."
-    }
+    desc:  { tr: "Fitness & health markası için güçlü, yüksek kontrastlı logo tasarımı.", en: "Strong, high-contrast logo design for a fitness & health brand." }
   },
   "assets/brands/pump-station-business-cards.png": {
     title: { tr: "Pump Station Gym Kartvizit", en: "Pump Station Gym Business Card" },
     sub:   { tr: "Kartvizit tasarımı", en: "Business card design" },
-    desc:  {
-      tr: "Kurumsal kimliğe uygun kartvizit düzeni: ikon seti, hiyerarşi ve baskı alanları.",
-      en: "Business card layout aligned with brand identity: icon set, hierarchy and print-safe areas."
-    }
+    desc:  { tr: "Kurumsal kimliğe uygun kartvizit düzeni: ikon seti, hiyerarşi ve baskı alanları.", en: "Business card layout aligned with brand identity: icon set, hierarchy and print-safe areas." }
   },
   "assets/brands/liora-beauty-center-logo.png": {
     title: { tr: "Liora Beauty Center", en: "Liora Beauty Center" },
     sub:   { tr: "Logo tasarımı", en: "Logo design" },
-    desc:  {
-      tr: "Beauty Center için tipografi odaklı, zarif logo tasarımı.",
-      en: "Elegant, typography-focused logo design for a beauty center."
-    }
+    desc:  { tr: "Beauty Center için tipografi odaklı, zarif logo tasarımı.", en: "Elegant, typography-focused logo design for a beauty center." }
   },
   "assets/brands/lanthe-shampoo.png": {
     title: { tr: "Lanthe Shampoo", en: "Lanthe Shampoo" },
     sub:   { tr: "Ambalaj / etiket tasarımı", en: "Packaging / label design" },
-    desc:  {
-      tr: "Şampuan ürünü için etiket tasarımı: marka dili, okunabilirlik ve kompozisyon.",
-      en: "Label design for shampoo: brand language, readability and composition."
-    }
+    desc:  { tr: "Şampuan ürünü için etiket tasarımı: marka dili, okunabilirlik ve kompozisyon.", en: "Label design for shampoo: brand language, readability and composition." }
   },
   "assets/brands/lanthe-capsul.png": {
     title: { tr: "Lanthe Capsul", en: "Lanthe Capsule" },
     sub:   { tr: "Ambalaj / etiket tasarımı", en: "Packaging / label design" },
-    desc:  {
-      tr: "Kapsül ürün için tasarım: marka dili, okunabilirlik ve kompozisyon.",
-      en: "Design for capsule product: brand language, readability and composition."
-    }
+    desc:  { tr: "Kapsül ürün için tasarım: marka dili, okunabilirlik ve kompozisyon.", en: "Design for capsule product: brand language, readability and composition." }
   },
   "assets/brands/bedirhan-avli-card.png": {
     title: { tr: "Bedirhan Avlı Kartvizit", en: "Bedirhan Avlı Business Card" },
     sub:   { tr: "Kartvizit tasarımı", en: "Business card design" },
-    desc:  {
-      tr: "Minimal kartvizit tasarımı: grid, tipografi ve renk dengesi.",
-      en: "Minimal business card design: grid, typography and color balance."
-    }
+    desc:  { tr: "Minimal kartvizit tasarımı: grid, tipografi ve renk dengesi.", en: "Minimal business card design: grid, typography and color balance." }
   }
 };
 
@@ -183,8 +159,15 @@ if (currentLang !== "tr" && currentLang !== "en") {
   currentLang = (navigator.language || "").toLowerCase().startsWith("tr") ? "tr" : "en";
 }
 
+function updateLangSwitchUI(lang){
+  $$(".lang-btn").forEach(btn => {
+    btn.classList.toggle("is-active", btn.dataset.lang === lang);
+  });
+}
+
 function applyLang(lang) {
   currentLang = lang;
+  localStorage.setItem("lang", lang);
   document.documentElement.lang = lang;
 
   // skip
@@ -227,16 +210,12 @@ function applyLang(lang) {
   const ticks = $$("#about .ticks li");
   about.ticks.forEach((txt, i) => { if (ticks[i]) ticks[i].textContent = txt; });
 
-  const aboutMoreEl = $("#about .about-more");
-  const aboutBtn = $('#about .about-actions button[data-toggle]');
+  const aboutMoreEl = $("#aboutMore");
+  const aboutBtn = $("#aboutToggleBtn");
   const aboutContact = $('#about .about-actions a.btn-ghost');
-
   if (aboutContact) aboutContact.textContent = about.contact;
 
   if (aboutBtn && aboutMoreEl) {
-    aboutBtn.dataset.originalText = about.more;
-    aboutBtn.dataset.toggleText = about.less;
-
     const isHidden = aboutMoreEl.hasAttribute("hidden");
     aboutBtn.textContent = isHidden ? about.more : about.less;
   }
@@ -246,7 +225,6 @@ function applyLang(lang) {
   const skillsTitle = $("#skills .section-title.center"); if (skillsTitle) skillsTitle.textContent = skills.title;
 
   const skillPs = $$("#skills .skill p");
-  // sıraya göre: Premiere, PS, AE, Illustrator, Figma, AI Tools
   if (skillPs[0]) skillPs[0].textContent = skills.pr;
   if (skillPs[1]) skillPs[1].textContent = skills.ps;
   if (skillPs[2]) skillPs[2].textContent = skills.ae;
@@ -285,14 +263,12 @@ function applyLang(lang) {
     const meta = PORTFOLIO_MAP[img];
     if (!meta) return;
 
-    // kart içi yazılar
     const h3 = $(".project-meta h3", card);
     const p = $(".project-meta p", card);
 
     if (h3) h3.textContent = meta.title[lang];
     if (p) p.textContent = meta.sub[lang];
 
-    // modal için dataset güncelle
     card.dataset.title = meta.title[lang];
     card.dataset.desc = meta.desc[lang];
   });
@@ -311,38 +287,7 @@ function applyLang(lang) {
   if (cBtns[0]) cBtns[0].textContent = contact.send;
   if (cBtns[1]) cBtns[1].textContent = contact.cv;
 
-  // lang button ui
-  // Language switch (TR/EN flags)
-(() => {
-  const switchEl = document.querySelector(".lang-switch");
-  if (!switchEl) return;
-
-  const btns = Array.from(switchEl.querySelectorAll(".lang-btn"));
-  const supported = ["tr", "en"];
-
-  const stored = localStorage.getItem("lang");
-  const browser = (navigator.language || "").toLowerCase().startsWith("tr") ? "tr" : "en";
-  let current = supported.includes(stored) ? stored : browser;
-
-  function setLang(lang){
-    if (!supported.includes(lang)) return;
-
-    current = lang;
-    localStorage.setItem("lang", lang);
-    document.documentElement.lang = lang;
-
-    btns.forEach(b => b.classList.toggle("is-active", b.dataset.lang === lang));
-
-    // Senin mevcut i18n fonksiyonun hangisiyse onu çağırır:
-    if (typeof window.setLanguage === "function") window.setLanguage(lang);
-    else if (typeof window.applyTranslations === "function") window.applyTranslations(lang);
-    else if (typeof window.applyI18n === "function") window.applyI18n(lang);
-  }
-
-  btns.forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
-  setLang(current);
-})();
-
+  updateLangSwitchUI(lang);
 }
 
 /* =========================
@@ -382,24 +327,21 @@ function setActiveLink() {
 window.addEventListener("scroll", setActiveLink, { passive: true });
 setActiveLink();
 
-// Generic toggles (About)
-$$("[data-toggle]").forEach((btn) => {
-  const targetSel = btn.dataset.toggle;
-  btn.addEventListener("click", () => {
-    const target = $(targetSel);
-    if (!target) return;
+// About toggle (id ile)
+(() => {
+  const btn = $("#aboutToggleBtn");
+  const target = $("#aboutMore");
+  if (!btn || !target) return;
 
+  btn.addEventListener("click", () => {
     const isHidden = target.hasAttribute("hidden");
     if (isHidden) target.removeAttribute("hidden");
     else target.setAttribute("hidden", "");
 
-    const original = btn.dataset.originalText || btn.textContent.trim();
-    const toggleText = btn.dataset.toggleText;
-
-    // Eğer yeni açıyorsak "less", kapatıyorsak "more"
-    btn.textContent = isHidden ? (toggleText || btn.textContent) : (original || btn.textContent);
+    const labels = I18N[currentLang].about;
+    btn.textContent = isHidden ? labels.less : labels.more;
   });
-});
+})();
 
 // Image fallback
 $$('img[data-fallback]').forEach((img) => {
@@ -527,12 +469,24 @@ window.addEventListener("scroll", toggleToTop, { passive: true });
 toggleToTop();
 toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-// Lang toggle click
-$("#langToggle")?.addEventListener("click", () => {
-  const next = currentLang === "tr" ? "en" : "tr";
-  localStorage.setItem("lang", next);
-  applyLang(next);
-});
+/* =========================
+   Lang switch init
+========================= */
+function initLangSwitch(){
+  const btns = $$(".lang-btn");
+  if (!btns.length) return;
+
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const lang = btn.dataset.lang;
+      if (lang !== "tr" && lang !== "en") return;
+      applyLang(lang);
+    });
+  });
+
+  updateLangSwitchUI(currentLang);
+}
 
 // init
 applyLang(currentLang);
+initLangSwitch();

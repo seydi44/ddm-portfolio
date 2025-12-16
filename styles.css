@@ -719,7 +719,7 @@ a{ color: inherit; text-decoration: none; }
 /* İngilizce’de kart üstü yazı */
 html[lang="en"] .project::after{ content: "Details"; }
 
-/* Language Switch (flags) */
+/* Language Switch (TR/EN) */
 .lang-switch{
   display: inline-flex;
   align-items: center;
@@ -739,8 +739,11 @@ html[lang="en"] .project::after{ content: "Details"; }
   display: grid;
   place-items: center;
   cursor: pointer;
-  font-size: 18px;   /* bayrak boyutu */
+  font-size: 12px;           /* TR/EN için ideal */
+  font-weight: 900;
+  letter-spacing: .6px;
   line-height: 1;
+  color: rgba(255,255,255,.88);
   transition: transform .15s ease, background .15s ease, box-shadow .15s ease, border-color .15s ease;
 }
 
@@ -751,6 +754,7 @@ html[lang="en"] .project::after{ content: "Details"; }
 }
 
 .lang-btn.is-active{
+  color: #001317;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   box-shadow: 0 12px 30px rgba(0,200,255,.18);
 }
